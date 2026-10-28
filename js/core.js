@@ -22,3 +22,6 @@ async function myScope(){
  const cs=new Set((uc.data||[]).map(x=>x.company_id)),ds=new Set((ud.data||[]).map(x=>x.department_id));if(me.department_id)ds.add(me.department_id);
  return{...base,c:base.allC.filter(x=>cs.has(x.id)),d:base.allD.filter(x=>ds.has(x.id))}
 }
+const money=n=>(+n||0).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
+const fmtq=n=>(+n||0).toLocaleString('en-IN',{maximumFractionDigits:3});
+const idMap=(rows,k='name')=>Object.fromEntries((rows||[]).map(x=>[x.id,x[k]]));

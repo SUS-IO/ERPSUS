@@ -1,6 +1,5 @@
 /* MODULE: Purchase Order (PO) */
 const POS={draft:'Draft',submitted:'Awaiting signed copy',signed:'Signed - ready to finalize',finalized:'Finalized',cancelled:'Cancelled'};
-const money=n=>(+n||0).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
 const lineAmt=l=>(+l.qty||0)*(+l.rate||0)*(1+(+l.tax_pct||0)/100);
 
 async function pgPO(){

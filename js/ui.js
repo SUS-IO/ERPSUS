@@ -1,7 +1,7 @@
 /* UI - reusable data table (search, filters, sorting, paging, CSV) and small effects */
 const TBL={};   /* remembers search/sort/filter per table, even after a live refresh */
 function dataTable(el,o){
- const st=TBL[o.id]||(TBL[o.id]={q:'',sort:o.sort||null,dir:1,f:{},page:1,size:o.size||25});
+ const st=TBL[o.id]||(TBL[o.id]={q:'',sort:o.sort||null,dir:1,f:{...(o.f||{})},page:1,size:o.size||25});
  const cols=o.cols,ncol=cols.length;
  const val=(r,c)=>c.val?c.val(r):r[c.key];
  const txt=(r,c)=>{const v=val(r,c);return v==null?'':String(v)};
